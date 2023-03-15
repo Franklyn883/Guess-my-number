@@ -7,38 +7,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Guess-my-Number</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
   <div class="header-sec">
     <div class="first-sec">
-      <div class="again">Again!</div>
-      <div>(Between 1 and 20)</div>
+      <div id="reset">Reset!</div>
+      <div class="level">
+        Mode:
+        <select name="Level" id="level" style="width:200px">
+          <option value="easy"   id="easy" selected>Easy</option>
+          <option value="normal" id="normal">Normal</option>
+          <option value="hard"   id="hard">Hard</option>
+        </select>
+      </div>
     </div>
     <div class="second-sec">
       <div class="guess-my-number">Guess My Number!</div>
-
+      <div class="comp-guess-container"><div id="comp-guess">?</div></div>
     </div>
-    <hr>
-    <div class="quest">
-      <div class="quest-mark">?</div>
-    </div>
+    
   </div>
+ 
   <div class="main-sec">
     <div class="game-input">
       <div class="input-text">
-        <input type="number" id="input-text" placeholder="enter number">
+        <input type="number" id="player-input" placeholder="enter number">
       </div>
       <div class="input-btn">
-        <button type="button" id="input-btn">Check!</button>
+        <button type="button" id="check-btn">Check!</button>
       </div>
     </div>
     <div class="result-sec">
-    <div class="guess-dashboard">Start guessing Number...</div>
-    <div class="score">💯 Score: 20</div>
-    <div class="high-score">🥇 high score: 0</div>
+    <div id="display-dashboard">Start guessing Number...</div>
+    <div>💯 Score: <span id="score">20</span></div>
+    <div class="high-score">🥇 high score: <span id="high-score">0</span></div>
   </div>
 </div>
+<footer>
+  <p>About</p>
+  <a href="#" class="github-link"> 
+    <img src="resources/GitHub-Mark.png" alt="github log" width="25px" height="auto>">
+    <p>@franklynose</p> 
+  </a>
+ 
+
+</footer>
 </body>
 
 </html>

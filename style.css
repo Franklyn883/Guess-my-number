@@ -5,15 +5,25 @@
   margin:0;
   box-sizing: border-box;
 }
+html{
+  height: 100%;
+}
 body{
   background-color: rgb(31, 30, 30);
   color:white;
   font-family: 'Press Start 2P', cursive;
-  
-}
-.head-sec{
+  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  
+}
+.header-sec{
+  display: flex;
+  flex-direction: column;
+  height: 35vh;
+  border-bottom: 10px solid white;
+ 
 }
 .first-sec{
   margin: 1em;
@@ -21,11 +31,13 @@ body{
   justify-content: space-between;
 
 }
-.again{
+
+#reset{
   font-size: 1.2rem;
   background-color: white;
   padding: 1em 1.75em;
   color: rgb(31, 30, 30);
+  cursor: pointer;
 }
 .guess-my-number{
   font-size: 2.5rem;
@@ -33,62 +45,64 @@ body{
   font-weight: bold;
   margin-bottom: 1rem;
 }
-.quest{
+.comp-guess-container{
   display: flex;
   justify-content: center;
- 
 }
-.quest-mark{
+
+#comp-guess {
   width: 150px;
   
-  text-align: center;
+  
+
   font-size: 3.5rem;
   font-weight:bold;
   padding:2rem 16px;
-  background-color: white;
+  background-color:white;
   color: rgb(31, 30, 30);
   text-align: center;
   
 }
-hr{
-  position: relative;
-  top: 60px;
-  height: 8px;
-  background-color: white;
-  z-index: -1;
-}
+
+
 .main-sec{
-  margin-top: 4rem;
+  margin-top: 6rem;
   display: flex;
   justify-content: space-around;
   font-size: 1.2rem;
 }
-#input-text{
-  width:250px;
+#player-input{
+  max-width:100%;
   height: 100px;
   border: 5px solid white;
   background-color: inherit;
   text-align: center;
   font-family: inherit;
   margin-bottom: 1rem;
+  color: white;
+  font-size: 2rem;
 }
-#input-btn{
+#player-input[placeholder]{
+  font-size: 1rem;
+}
+#check-btn{
   font-size: 1.2rem;
   border: none;
   outline: none;
   padding:1em;
   font-family: inherit;
   padding: 1em 1.75em;
- 
+  cursor: pointer;
 }
 .game-input{
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  align-items: center;
 
 }
 .input-btn{
- 
+  
   align-self: center;
 }
 .result-sec{
@@ -97,13 +111,47 @@ hr{
 justify-content: space-between;
 
 }
-.guess-dashboard{
+#display-dashboard{
   flex: 0.5;
 }
-.again:active,
-.again:hover,
-#input-btn:active,
-#input-btn:hover{
+#reset:active,
+#reset:hover,
+#check-btn:active,
+#check-btn:hover{
   background-color: rgba(255, 255, 255, 0.452);
 }
+.github-link{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  
+}
+.github-link:hover,
+.github-link:active{
+  color:rgba(206, 190, 190, 0.753) ;
+}
+#level{
+  font-family: inherit;
+  padding: 0.75rem;
+  border: none;
+  background-color: white;
+  color: rgb(31, 30, 30);
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-color: transparent;
+}
+
+.option{
+  padding: 16px 0;
+}
+footer{
+ display:flex;
+  background-color:rgba(255, 255, 255, 0.452) ;
+  padding: 1rem 0;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
 
