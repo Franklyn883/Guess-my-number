@@ -1,0 +1,109 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+}
+body{
+  background-color: rgb(31, 30, 30);
+  color:white;
+  font-family: 'Press Start 2P', cursive;
+  
+}
+.head-sec{
+  display: flex;
+  flex-direction: column;
+}
+.first-sec{
+  margin: 1em;
+  display: flex;
+  justify-content: space-between;
+
+}
+.again{
+  font-size: 1.2rem;
+  background-color: white;
+  padding: 1em 1.75em;
+  color: rgb(31, 30, 30);
+}
+.guess-my-number{
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.quest{
+  display: flex;
+  justify-content: center;
+ 
+}
+.quest-mark{
+  width: 150px;
+  
+  text-align: center;
+  font-size: 3.5rem;
+  font-weight:bold;
+  padding:2rem 16px;
+  background-color: white;
+  color: rgb(31, 30, 30);
+  text-align: center;
+  
+}
+hr{
+  position: relative;
+  top: 60px;
+  height: 8px;
+  background-color: white;
+  z-index: -1;
+}
+.main-sec{
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.2rem;
+}
+#input-text{
+  width:250px;
+  height: 100px;
+  border: 5px solid white;
+  background-color: inherit;
+  text-align: center;
+  font-family: inherit;
+  margin-bottom: 1rem;
+}
+#input-btn{
+  font-size: 1.2rem;
+  border: none;
+  outline: none;
+  padding:1em;
+  font-family: inherit;
+  padding: 1em 1.75em;
+ 
+}
+.game-input{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+}
+.input-btn{
+ 
+  align-self: center;
+}
+.result-sec{
+  display: flex;
+  flex-direction: column;
+justify-content: space-between;
+
+}
+.guess-dashboard{
+  flex: 0.5;
+}
+.again:active,
+.again:hover,
+#input-btn:active,
+#input-btn:hover{
+  background-color: rgba(255, 255, 255, 0.452);
+}
+
