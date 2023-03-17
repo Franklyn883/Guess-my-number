@@ -16,10 +16,10 @@
       <div id="reset">Reset!</div>
       <div class="level">
         Mode:
-        <select name="Level" id="level" style="width:200px">
-          <option value="easy"   id="easy" selected>Easy</option>
-          <option value="normal" id="normal">Normal</option>
-          <option value="hard"   id="hard">Hard</option>
+        <select name="Level" id="gameMode" style="width:200px">
+          <option class ="gameMode" value="easy"   id="easy" selected>Easy</option>
+          <option class ="gameMode" value="normal" id="normal">Normal</option>
+          <option class ="gameMode" value="hard"   id="hard">Hard</option>
         </select>
       </div>
     </div>
@@ -40,9 +40,10 @@
       </div>
     </div>
     <div class="result-sec">
-    <div id="display-dashboard">Start guessing Number...</div>
-    <div>💯 Score: <span id="score">20</span></div>
-    <div class="high-score">🥇 high score: <span id="high-score">0</span></div>
+    <p id="display-dashboard">Start guessing Number...</p>
+    <p> 🛡️ Tries Left:<span id="tries">10</span></p>
+    <p>💯 Points: <span id="points">0</span></p>
+    <div class="high-score">🥇 High score: <span id="high-score">0</span></div>
   </div>
 </div>
 <footer>
