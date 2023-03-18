@@ -1,54 +1,73 @@
-//cache the DOM
+//caching  the DOM
 const reset = document.getElementsByClassName('reset');
 //Game Levels
 const levelEasy = document.getElementById('easy');
 const levelNormal = document.getElementById('normal');
 const levelHard = document.getElementById('hard');
 
-
+//other DOM elements
 let compGuess = document.getElementById('comp-guess');
 let playerGuess = document.getElementById('player-input');
 const checkBtn = document.getElementById('check-btn');
 let display = document.getElementById('display-dashboard');
 let pointsDisplay = document.getElementById('points');
 let highScoreDisplay = document.getElementById('high-score');
-let numOfTriesDisplay = document.getElementById('tries')
-
+let numOfTriesDisplay = document.getElementById('tries');
+const guessMyNum = document.getElementsByClassName('guess-my-number')[0]
 
 //State Variables
 const compEasyGuess = Math.floor(Math.random()*20)+1;
 const compNormalGuess = Math.floor(Math.random()*50)+1;
 const compHardGuess = Math.floor(Math.random()*100)+1;
+
+//updated variables
 let points = 0;
 let numOfTries = 10;
 let highScore = 0;
 
  //function for possible guess outcome
+ //right guess
  const wrongGuess = function(){
-  compGuess.style.backgroundColor = 'red';
+  guessMyNum.style.color ='white'
+  compGuess.style.backgroundColor = 'red'
+  setTimeout(() => {
+    compGuess.style.backgroundColor = 'white';
+  }, 1000);
   points; numOfTries --;
   numOfTriesDisplay.textContent= numOfTries;
-  pointsDisplay.textContent =points;
-  
+  pointsDisplay.textContent = points;
  }
 
+ //guess error
+ const guessError = function(minNum,maxNum){
+  display.textContent = `🚫 Pick between ${minNum} and ${maxNum}`;
+  guessMyNum.style.color ='red'
+  playerGuess.style.borderColor = 'red';
+  points; numOfTries;  highScore;
+  pointsDisplay.textContent = points;
+  numOfTriesDisplay.textContent = numOfTries;
+  highScoreDisplay.textContent = highScore;
+ }
+//right guess
+const rightGuess = function(pointValue){
+  display.textContent = '🥳 Correct Guess you Win';
+  compGuess.style.backgroundColor = 'green';
+  guessMyNum.style.color ='white'
+  points+=pointValue; highScore;numOfTries
+  pointsDisplay.textContent=points
+  highScoreDisplay.textContent = highScore;
+  numOfTriesDisplay.textContent = numOfTries;
+}
+// The Different Game Modes
  //Game Logic for Easy Mode
 const easyGameMode = function(){
- 
-  const minNum = 1, maxNum =20;
-  
+  const minNum = 1, maxNum =20; 
  console.log(compEasyGuess)
   let playerGuessNum = Number(playerGuess.value);
   if(!playerGuessNum || playerGuessNum < minNum || playerGuessNum > maxNum){
-    display.textContent = "🚫 Pick between 1 and 20";
-    playerGuess.style.borderColor = 'red';
-    points; numOfTries;  highScore;
-    pointsDisplay.textContent = points;
-    numOfTriesDisplay.textContent = numOfTries;
-    highScoreDisplay.textContent = highScore;
-   
-    
+    guessError(minNum,maxNum); 
   }
+
   else if(playerGuessNum > compEasyGuess){
     display.textContent ="📈 Too high";
    wrongGuess();
@@ -58,29 +77,16 @@ const easyGameMode = function(){
    wrongGuess();
   }
   else if(playerGuessNum === compEasyGuess){
-    display.textContent = '🥳 Correct Guess you Win';
-    compGuess.style.backgroundColor = 'green';
-    points+=10; highScore;numOfTries
-    pointsDisplay.textContent=points
-    highScoreDisplay.textContent = highScore;
-    numOfTriesDisplay.textContent = numOfTries;
-    
-  }
-  
- 
- 
+    rightGuess(10)
+  } 
 }
 
+ //Game Logic for Easy Mode
 const normalGameMode = function(){
   const minNum = 1, maxNum = 50;
   let playerGuessNum = Number(playerGuess.value);
   if(!playerGuessNum || playerGuessNum < minNum || playerGuessNum > maxNum){
-    display.textContent = "🚫 Pick between 1 and 50";
-    playerGuess.style.borderColor = 'red';
-    points; numOfTries;  highScore;
-    pointsDisplay.textContent = points;
-    numOfTriesDisplay.textContent = numOfTries;
-    highScoreDisplay.textContent = highScore; 
+    guessError(minNum,maxNum)
   }
 
   else if(playerGuessNum > compNormalGuess){
@@ -94,24 +100,19 @@ const normalGameMode = function(){
   }
 
   else if(playerGuessNum === compNormalGuess){
-    display.textContent = '🥳 Correct Guess you Win'
-    compGuess.style.backgroundColor = 'green'
-   compNormalGuess;
-    points+=20;
-    pointsDisplay.textContent=points;
+    rightGuess(20)
   }
  
 }
 
+ //Game Logic for Easy Mode
 const hardGameMode = function(){
   const minNum = 1, maxNum =100;
   
   console.log(display)
   let playerGuessNum = Number(playerGuess.value);
   if(!playerGuessNum || playerGuessNum < minNum || playerGuessNum > maxNum){
-    display.textContent = "🚫 Pick between 1 and 100";
-    playerGuess.style.borderColor = 'red';
-    points; numOfTries;  highScore;
+    guessError(minNum,maxNum);
     }
 
   else if(playerGuessNum > compHardGuess){
@@ -125,13 +126,12 @@ const hardGameMode = function(){
   }
 
   else if(playerGuessNum === compHardGuess){
-    display.textContent = '🥳 Correct Guess you Win'
-    compGuess.style.backgroundColor = 'green'
-    points+=50
-    pointsDisplay.textContent=points
-    compHardGuess;
+   rightGuess(50)
   }
 }
+
+
+
 
 //Initiate Game
 const gamePlay = function(){
@@ -150,5 +150,5 @@ const gamePlay = function(){
     hardGameMode();
   }
 }
-console.log('yoga')
+console.log(compEasyGuess)
 checkBtn.addEventListener('click',gamePlay)

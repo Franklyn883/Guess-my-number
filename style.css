@@ -38,6 +38,7 @@ body{
   padding: 1em 1.75em;
   color: rgb(31, 30, 30);
   cursor: pointer;
+  
 }
 .guess-my-number{
   font-size: 2.5rem;
@@ -109,12 +110,15 @@ body{
   display: flex;
   flex-direction: column;
 justify-content: space-between;
+width: 500px;
+flex-wrap: wrap;
 
 }
 
 
 #display-dashboard{
   flex: 0.5;
+  flex-basis: 0;
 }
 #reset:active,
 #reset:hover,
