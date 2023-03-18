@@ -133,7 +133,7 @@ justify-content: space-between;
 .github-link:active{
   color:rgba(206, 190, 190, 0.753) ;
 }
-#gameMode{
+#game-mode{
   font-family: inherit;
   padding: 0.75rem;
   border: none;
