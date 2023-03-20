@@ -15,6 +15,13 @@ let pointsDisplay = document.getElementById("points");
 let highScoreDisplay = document.getElementById("high-score");
 let numOfTriesDisplay = document.getElementById("tries");
 let guessMyNum = document.getElementsByClassName("guess-my-number")[0];
+let gameOver = document.getElementById("game-over");
+//Modal display
+const modal = document.getElementById("game-modal");
+const playAgainBtn = document.getElementById("play-again-btn");
+const closeModal = document.getElementById("close");
+let modalPoints = document.getElementById("modal-points");
+let modalHighScore = document.getElementById("modal-high-score");
 
 //State Variables
 let compEasyGuess = Math.floor(Math.random() * 20) + 1;
@@ -40,6 +47,49 @@ const resetMode = function () {
   compGuess.style.background = "white";
   playerGuess.style.borderColor = "white";
 };
+//clicking on window to close
+window.onclick = (event) => {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
+//add event too play again btn
+playAgainBtn.addEventListener("click", () => {
+  const modal = document.getElementById("game-modal");
+  modal.style.display = "none";
+  playerGuess.value = "enter number";
+  numOfTries = 10;
+  points = 0;
+  highScore;
+  numOfTriesDisplay.textContent = numOfTries;
+  pointsDisplay.textContent = points;
+  highScoreDisplay.textContent = highScore;
+
+});
+//close the Modal display
+closeModal.onclick = () => (modal.style.display = "none");
+//Victory Modal Display
+const gameVictory = function () {
+  gameOver.classList.add("game-win");
+  const loseMssg = document.getElementById("won-or-lost");
+  loseMssg.textContent = "🏆  You Won 🏆 ";
+  loseMssg.style.color = "green";
+  modal.style.display = "block";
+  modalPoints.textContent = points;
+  modalHighScore.textContent = highScore;
+};
+
+const gameDefeat = function () {
+  const loseMssg = document.getElementById("won-or-lost");
+  loseMssg.textContent = "You Lost";
+  loseMssg.style.color = "red";
+  gameOver.classList.add("game-lose");
+  modal.style.display = "block";
+  modalPoints.textContent = points;
+  modalHighScore.textContent = highScore;
+};
+
 //On loading
 window.onload = () => {
   display.textContent = "Start Guessing...";
@@ -57,7 +107,7 @@ const initialDisplay = function (minNum, maxNum) {
 //reset Game
 reset.addEventListener("click", resetMode);
 
-//addEventListener to the modes
+//addEventListener to the modes to update the display
 const gameMode = document.getElementById("game-mode");
 gameMode.addEventListener("change", (event) => {
   selectedMode = event.target.value;
@@ -184,15 +234,6 @@ const hardGameMode = function () {
   }
 };
 
-//victory
-const victory = function () {
-  if (numOfTries >= 0 && points !== 0) {
-    alert("You Win");
-  } else {
-    alert("you lose try again!");
-  }
-};
-
 //Initiate Game
 const gamePlay = function () {
   const selectedMode = document.getElementById("game-mode").value;
@@ -208,9 +249,9 @@ const gamePlay = function () {
     break;
   }
   if (numOfTries == 0 && points == 0) {
-    alert("lost");
+    gameDefeat();
   } else if (numOfTries == 0 && points != 0) {
-    alert("congratulations you won");
+    gameVictory();
   }
 };
 
@@ -218,7 +259,7 @@ console.log(compEasyGuess);
 
 console.log(compHardGuess);
 checkBtn.addEventListener("click", gamePlay);
-//addEventListerner to the enter key
+//addEventListener to the enter key
 document.addEventListener("keydown", (event) => {
   if (event.key == "Enter") {
     gamePlay();

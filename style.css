@@ -148,9 +148,83 @@ flex-wrap: wrap;
   border: 1px solid transparent;
   border-color: transparent;
 }
+.modal{
+display:none;
+position: fixed;
+z-index:1;
+left:0;
+top:0;
+width:100%;
+height: 100%;
+background-color: rgba(0,0,0,0.4);
+}
+.modal-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  margin: 10% auto;
+  padding:16px;
+  border: 1px solid #0f0606;
+  width: 35%;
+  color: black;
+ 
+}
+.modal-content img{
+  padding-bottom: 8px;
+}
+.modal-content p {
+  padding: 8px ;
+  
+}
 
-.option{
-  padding: 16px 0;
+.game-win{
+  font-size: 40px;
+  background: linear-gradient(90deg,green ,#BD8600)   ;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-size: 100% 50%;
+}
+.game-lose{
+  font-size: 40px;
+  background: linear-gradient(90deg ,red ,#BD8600)   ;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-size: 100% 50%;
+}
+
+#won-or-lost{
+  font-size: 24px;
+  color: green;
+}
+#close{
+  align-self: flex-end;
+  padding:4px;
+  border-radius: 50%;
+}
+#close:hover,
+#close:focus{
+  color:black;
+  text-decoration: none;
+  cursor:pointer;
+  background-color: rgba(0, 0, 0, 0.233);
+}
+#play-again-btn{
+  font-family: inherit;
+  padding: 12px 24px;
+  outline: none;
+  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.76);
+  margin-top: 4px;
+  
+}
+#play-again-btn:hover,
+#play-again-btn:focus{
+  color:black;
+  text-decoration: none;
+  cursor:pointer;
+  background-color: rgba(0, 0, 0, 0.233);
 }
 footer{
  display:flex;
