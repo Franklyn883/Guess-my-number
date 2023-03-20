@@ -131,6 +131,7 @@ flex-wrap: wrap;
   align-items: center;
   text-decoration: none;
   color: white;
+  gap: 6px;
   
 }
 .github-link:hover,
